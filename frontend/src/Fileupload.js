@@ -8,6 +8,7 @@ export default function Fileupload() {
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
     const [resultText, setResultText] = useState("");
+    const [imageUrl, setImageUrl] = useState('');
 
     const fileInput = useRef();
 
@@ -47,6 +48,8 @@ export default function Fileupload() {
             setResultText(
                 res.data.message
             );
+
+            setImageUrl(res.data.image)
 
             fileInput.current.value = "";
 
@@ -246,6 +249,40 @@ export default function Fileupload() {
                     :
 
                     null
+            }
+
+            {
+                imageUrl && (
+
+                    <div
+                        className="
+w-full
+rounded-2xl
+overflow-hidden
+"
+                    >
+
+                        <p
+                            className="
+mb-3
+font-semibold
+"
+                        >
+                            Uploaded Image
+                        </p>
+
+                        <img
+                            src={imageUrl}
+                            alt="uploaded"
+                            className="
+                            w-full
+                         rounded-xl
+                          "
+                        />
+
+                    </div>
+
+                )
             }
 
         </div>
