@@ -1,19 +1,20 @@
-# React + Node.js Image Upload
+# React + Node.js Cloudinary Image Upload
 
-A simple full-stack image upload application built using **React.js**, **Node.js**, **Express.js**, and **Multer**.
+A simple full-stack image upload application built using **React.js**, **Node.js**, **Express.js**, **Multer**, and **Cloudinary**.
 
-Users can select an image from the frontend and upload it to the backend server.
+Users can select an image from the frontend and upload it directly to **Cloudinary Cloud Storage** through the backend.
 
 ---
 
 ## Features
 
-* Upload image from React frontend
-* Store uploaded image in backend
-* Real-time upload status message
-* Clean and responsive UI using Tailwind CSS
-* Axios API integration
-* Multer file handling
+✅ Upload image from React frontend
+✅ Store uploaded images in Cloudinary
+✅ Real-time upload status messages
+✅ Responsive UI using Tailwind CSS
+✅ Axios API integration
+✅ Multer middleware for file handling
+✅ Environment variable configuration with `.env`
 
 ---
 
@@ -31,6 +32,8 @@ Users can select an image from the frontend and upload it to the backend server.
 * Node.js
 * Express.js
 * Multer
+* Cloudinary
+* dotenv
 
 ---
 
@@ -40,8 +43,8 @@ Users can select an image from the frontend and upload it to the backend server.
 Image-Upload
 │
 ├── backend
-│   ├── public_images
 │   ├── index.js
+│   ├── .env
 │   ├── package.json
 │
 ├── frontend
@@ -59,17 +62,16 @@ Image-Upload
 
 ## Installation
 
-### Clone Project
+### Clone Repository
 
 ```bash
 git clone https://github.com/asifmohamed491-code/image-upload-app.git
-
 ```
 
 Move into project:
 
 ```bash
-cd Image-Upload
+cd image-upload-app
 ```
 
 ---
@@ -82,13 +84,21 @@ Open terminal:
 cd backend
 ```
 
-Install packages:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Run server:
+Create `.env` file:
+
+```env
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+Run backend:
 
 ```bash
 node index.js
@@ -104,13 +114,13 @@ http://localhost:5000
 
 ## Frontend Setup
 
-Open new terminal:
+Open another terminal:
 
 ```bash
 cd frontend
 ```
 
-Install packages:
+Install dependencies:
 
 ```bash
 npm install
@@ -145,7 +155,9 @@ Express Route
 ↓
 Multer
 ↓
-Save Image
+Cloudinary Upload
+↓
+Image URL Response
 ↓
 Success Message
 ```
@@ -170,14 +182,14 @@ Fields:
 
 ```plaintext
 file
-fileName
 ```
 
 Response:
 
 ```json
 {
-  "message":"File Uploaded Successfully"
+  "message": "Image Uploaded Successfully",
+  "imageUrl": "cloudinary-image-url"
 }
 ```
 
@@ -188,11 +200,14 @@ Response:
 * Drag and Drop Upload
 * Upload Progress Bar
 * Preview Image
-* Cloudinary Storage
+* Multiple Image Upload
 * Authentication
+* Image Compression
 
 ---
 
 ## Author
 
-Mohamed Asif
+**Mohamed Asif**
+
+Frontend + Backend Developer
